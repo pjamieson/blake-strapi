@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "paintings",
+  "info": {
+    "name": "painting"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "identifier": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "subgenre": {
+      "model": "subgenre",
+      "via": "paintings"
+    },
+    "sport": {
+      "model": "sport",
+      "via": "paintings"
+    },
+    "date": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "medium": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "price": {
+      "type": "decimal",
+      "default": 0,
+      "required": true,
+      "min": 0
+    },
+    "available": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "portfolio": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "feature": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "order": {
+      "type": "integer",
+      "required": true,
+      "min": 0
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    }
+  }
+}

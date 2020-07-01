@@ -1,0 +1,35 @@
+{
+  "name": "blake-strapi",
+  "private": true,
+  "description": "Strapi CMS backend for blake [dot] art",
+  "version": "0.1.0",
+  "author": "Patrick Jamieson <patrick@patrickjamieson.com>",
+  "dependencies": {
+    "strapi": "3.0.5",
+    "strapi-admin": "3.0.5",
+    "strapi-utils": "3.0.5",
+    "strapi-plugin-content-type-builder": "3.0.5",
+    "strapi-plugin-content-manager": "3.0.5",
+    "strapi-plugin-users-permissions": "3.0.5",
+    "strapi-plugin-email": "3.0.5",
+    "strapi-plugin-upload": "3.0.5",
+    "strapi-connector-bookshelf": "3.0.5",
+    "knex": "<0.20.0",
+    "sqlite3": "latest"
+  },
+  "devDependencies": {},
+  "strapi": {
+    "uuid": "9c497ca6-8f2b-438c-a0ca-c185fc866510"
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "license": "MIT"
+}

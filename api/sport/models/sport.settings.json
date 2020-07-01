@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sports",
+  "info": {
+    "name": "sport"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "order": {
+      "type": "integer",
+      "required": true
+    },
+    "paintings": {
+      "via": "sport",
+      "collection": "painting"
+    }
+  }
+}
