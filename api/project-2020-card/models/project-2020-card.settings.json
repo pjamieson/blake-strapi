@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_2020_cards",
+  "info": {
+    "name": "Project 2020 Card"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "project_2020_player": {
+      "model": "project-2020-player",
+      "via": "project_2020_cards"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Subtitle": {
+      "type": "string"
+    },
+    "limitation": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "details": {
+      "type": "richtext"
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "qty": {
+      "type": "integer",
+      "required": true,
+      "min": -1,
+      "default": 0
+    },
+    "order": {
+      "required": true,
+      "type": "integer"
+    },
+    "feature": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "identifier": {
+      "type": "uid",
+      "required": true,
+      "default": "project-2020-card-"
+    }
+  }
+}

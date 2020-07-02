@@ -75,7 +75,7 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "identifier"
     }
   }
 }

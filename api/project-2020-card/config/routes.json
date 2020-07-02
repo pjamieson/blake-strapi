@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/project-2020-cards",
+      "handler": "project-2020-card.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/project-2020-cards/count",
+      "handler": "project-2020-card.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/project-2020-cards/:id",
+      "handler": "project-2020-card.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/project-2020-cards",
+      "handler": "project-2020-card.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/project-2020-cards/:id",
+      "handler": "project-2020-card.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/project-2020-cards/:id",
+      "handler": "project-2020-card.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

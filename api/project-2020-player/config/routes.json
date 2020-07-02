@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/project-2020-players",
+      "handler": "project-2020-player.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/project-2020-players/count",
+      "handler": "project-2020-player.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/project-2020-players/:id",
+      "handler": "project-2020-player.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/project-2020-players",
+      "handler": "project-2020-player.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/project-2020-players/:id",
+      "handler": "project-2020-player.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/project-2020-players/:id",
+      "handler": "project-2020-player.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
