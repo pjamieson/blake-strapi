@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "team_members",
+  "info": {
+    "name": "Team Member"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "image_credit": {
+      "type": "string"
+    },
+    "bio": {
+      "type": "richtext"
+    },
+    "twitter_url": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

@@ -22,11 +22,11 @@
       "plugin": "upload",
       "required": true
     },
-    "Title": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "Subtitle": {
+    "subtitle": {
       "type": "string"
     },
     "limitation": {
@@ -60,7 +60,7 @@
     "identifier": {
       "type": "uid",
       "required": true,
-      "default": "project-2020-card-"
+      "default": "card-"
     }
   }
 }
