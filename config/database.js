@@ -9,8 +9,8 @@ module.exports = ({ env }) => ({
         host: env('DATABASE_HOST', 'strapi-database.cpkn13tatvlb.us-east-2.rds.amazonaws.com'),
         port: env.int('DATABASE_PORT', 5432),
         database: env('DATABASE_NAME', 'strapi'),
-        username: env('DATABASE_USERNAME', ''),
-        password: env('DATABASE_PASSWORD', ''),
+        username: env('DATABASE_USERNAME', 'postgres'),
+        password: env('DATABASE_PASSWORD', 'StRaPi$25253'),
       },
       options: {
         ssl: false,
