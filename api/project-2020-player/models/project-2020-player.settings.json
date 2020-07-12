@@ -17,9 +17,9 @@
       "type": "integer",
       "required": true
     },
-    "project_2020_cards": {
+    "tradingcards": {
       "via": "project_2020_player",
-      "collection": "project-2020-card"
+      "collection": "tradingcard"
     }
   }
 }

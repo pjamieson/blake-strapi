@@ -1,18 +1,14 @@
 {
   "kind": "collectionType",
-  "collectionName": "project_2020_cards",
+  "collectionName": "tradingcards",
   "info": {
-    "name": "Project 2020 Card"
+    "name": "tradingcard"
   },
   "options": {
     "increments": true,
     "timestamps": true
   },
   "attributes": {
-    "project_2020_player": {
-      "model": "project-2020-player",
-      "via": "project_2020_cards"
-    },
     "image": {
       "model": "file",
       "via": "related",
@@ -61,6 +57,10 @@
       "type": "uid",
       "required": true,
       "default": "card-"
+    },
+    "project_2020_player": {
+      "model": "project-2020-player",
+      "via": "tradingcards"
     }
   }
 }
