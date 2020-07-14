@@ -61,6 +61,10 @@
     "project_2020_player": {
       "model": "project-2020-player",
       "via": "tradingcards"
+    },
+    "orders": {
+      "via": "tradingcards",
+      "collection": "order"
     }
   }
 }

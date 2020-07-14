@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "name": "order"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "orders"
+    },
+    "tradingcards": {
+      "collection": "tradingcard",
+      "via": "orders",
+      "dominant": true
+    },
+    "paintings": {
+      "collection": "painting"
+    },
+    "card_qty": {
+      "type": "json"
+    },
+    "subtotal": {
+      "type": "decimal",
+      "default": 0
+    },
+    "salestax": {
+      "type": "decimal",
+      "default": 0
+    },
+    "shipping": {
+      "type": "decimal",
+      "default": 0
+    },
+    "total": {
+      "type": "decimal",
+      "default": 0
+    },
+    "ordernum": {
+      "type": "string"
+    }
+  }
+}
