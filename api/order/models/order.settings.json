@@ -9,11 +9,6 @@
     "timestamps": true
   },
   "attributes": {
-    "user": {
-      "plugin": "users-permissions",
-      "model": "user",
-      "via": "orders"
-    },
     "tradingcards": {
       "collection": "tradingcard",
       "via": "orders",
@@ -43,6 +38,42 @@
     },
     "ordernum": {
       "type": "string"
+    },
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "address2": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "zip": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "newsletter": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }
