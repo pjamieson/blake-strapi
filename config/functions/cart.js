@@ -11,6 +11,17 @@ const cartSubtotal = (cart) => {
   return subtotal
 }
 
+const cartSalesTax = (cart) => {
+  const subtotal = cartSubtotal(cart)
+  const cartSalesTax = (subtotal * SALES_TAX_RATE)
+
+  return cartSalesTax
+}
+
+const cartShipping = (cart) => {
+  return 0.00 // For now, all shipping is free
+}
+
 const cartTotal = (cart) => {
   const subtotal = cartSubtotal(cart)
   const total = subtotal + (subtotal * SALES_TAX_RATE)
@@ -20,5 +31,7 @@ const cartTotal = (cart) => {
 
 module.exports = {
   cartSubtotal,
+  cartSalesTax,
+  cartShipping,
   cartTotal,
 }

@@ -36,16 +36,10 @@
       "type": "decimal",
       "default": 0
     },
-    "ordernum": {
-      "type": "string"
-    },
     "firstname": {
       "type": "string"
     },
     "lastname": {
-      "type": "string"
-    },
-    "company": {
       "type": "string"
     },
     "address": {
@@ -74,6 +68,10 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "stripe_paymentintent_id": {
+      "type": "string",
+      "unique": true
     }
   }
 }

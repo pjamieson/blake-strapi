@@ -3,7 +3,15 @@
     {
       "method": "POST",
       "path": "/orders/payment",
-      "handler": "order.setupStrapi",
+      "handler": "order.setupStripe",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/orders/validate",
+      "handler": "order.validatePayment",
       "config": {
         "policies": []
       }
