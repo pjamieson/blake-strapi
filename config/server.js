@@ -1,6 +1,5 @@
 module.exports = ({ env }) => ({
   host: env('HOST', '0.0.0.0'),
-  admin: {
-    autoOpen: true,
-  },
+  port: env.int('PORT', 1337),
+  url: 'https://api.blake.art',
 });
