@@ -6374,6 +6374,11 @@ lodash@4.17.12:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.12.tgz#a712c74fdc31f7ecb20fe44f157d802d208097ef"
   integrity sha512-+CiwtLnsJhX03p20mwXuvhoebatoh5B3tt+VvYlrPgZC1g36y+RRbkufX95Xa+X4I59aWEacDFYwnJZiyBh9gA==
 
+lodash@4.17.19:
+  version "4.17.19"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
+
 lodash@^4.1.1, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
@@ -9784,13 +9789,13 @@ strapi-provider-email-sendmail@3.1.1:
     sendmail "^1.6.1"
     strapi-utils "3.1.1"
 
-strapi-provider-upload-aws-s3@3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/strapi-provider-upload-aws-s3/-/strapi-provider-upload-aws-s3-3.1.1.tgz#fca27e6f42e1e99505c208180b9b7bccfc8f0c8c"
-  integrity sha512-ZR2uDB3lLfjWYX2vYwpxAGtoeXLgPRFd8EOtogQONUcavDYiLVwoudIARLlni6l+uHq3Q997m1TErnMTKXrsrA==
+strapi-provider-upload-aws-s3@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/strapi-provider-upload-aws-s3/-/strapi-provider-upload-aws-s3-3.1.2.tgz#61d187282346b1117c2cace91a756e015ba5ca9e"
+  integrity sha512-p7/WodCC+8RUelwODvkzYvgCCDyqbI/jTgSVkBS2iowPhwmNX2x3Phoz8CLyUDwl9baAagXeSMbk9nKVVWX8xA==
   dependencies:
     aws-sdk "^2.457.0"
-    lodash "^4.17.11"
+    lodash "4.17.19"
 
 strapi-provider-upload-local@3.1.1:
   version "3.1.1"
