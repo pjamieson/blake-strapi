@@ -51,7 +51,7 @@
     "feature": {
       "type": "boolean",
       "default": false,
-      "required": true
+      "required": false
     },
     "identifier": {
       "type": "uid",
@@ -63,8 +63,8 @@
       "via": "tradingcards"
     },
     "orders": {
-      "via": "tradingcards",
-      "collection": "order"
+      "collection": "order",
+      "via": "tradingcards"
     }
   }
 }

@@ -55,17 +55,17 @@
     },
     "available": {
       "type": "boolean",
-      "required": true,
+      "required": false,
       "default": false
     },
     "portfolio": {
       "type": "boolean",
-      "required": true,
+      "required": false,
       "default": false
     },
     "feature": {
       "type": "boolean",
-      "required": true,
+      "required": false,
       "default": false
     },
     "order": {
