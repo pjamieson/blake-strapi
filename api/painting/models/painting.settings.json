@@ -76,6 +76,15 @@
     "slug": {
       "type": "uid",
       "targetField": "identifier"
+    },
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }

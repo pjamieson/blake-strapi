@@ -40,7 +40,7 @@
     },
     "qty": {
       "type": "integer",
-      "required": true,
+      "required": false,
       "min": -1,
       "default": 0
     },

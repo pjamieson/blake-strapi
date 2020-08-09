@@ -1,5 +1,6 @@
 'use strict';
 const stripe = require('stripe')(process.env.STRIPE_SK)
+//const shippo = require('shippo')(process.env.SHIPPO_API_TOKEN)
 const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
 
 module.exports = {
@@ -66,7 +67,7 @@ module.exports = {
       return {error: err.raw.message}
     }
   },
-
+/*
   validatePayment: async (ctx) => {
     const { paymentIntent } = ctx.request.body
 
@@ -131,7 +132,7 @@ module.exports = {
     }
 
   },
-
+*/
   create: async (ctx) => {
     const {
       paymentIntent,
@@ -223,4 +224,107 @@ module.exports = {
 
     return sanitizeEntity(entity, { model: strapi.models.order });
   },
+/*
+  notifyShippo: async (ctx) => {
+    const {
+      firstname,
+      lastname,
+      address,
+      address2,
+      city,
+      state,
+      zip,
+      country,
+      email,
+      cart
+    } = ctx.request.body
+
+    let sanitizedCart = []
+    let items = []
+
+    // Prepare items and quantities for posting of order to Shippo
+    await Promise.all(cart.map(async item => {
+      if (item.itemType === 'painting') {
+        const cmsItem = await strapi.services.painting.findOne({
+          identifier: item.identifier
+        })
+        if (cmsItem) {
+          sanitizedCart.push(
+            {...cmsItem, ...{qty: item.qty}}
+          )
+          items.push(
+            {
+              "currency": "USD",
+              "quantity": item.qty,
+              "sku": item.identifier,
+              "title": item.title,
+              "total_amount": item.price
+            }
+          )
+          return cmsItem // forces block to complete before continuing
+        }
+      } else if (item.itemType === 'tradingcard') {
+        const cmsItem = await strapi.services.tradingcard.findOne({
+          identifier: item.identifier
+        })
+        if (cmsItem) {
+          const item_total = (item.qty * item.price)
+          sanitizedCart.push(
+            {...cmsItem, ...{qty: item.qty}}
+          )
+          items.push(
+            {
+              "currency": "USD",
+              "quantity": item.qty,
+              "sku": item.identifier,
+              "title": item.title,
+              "total_amount": item.price
+            }
+          )
+          return cmsItem // forces block to complete before continuing
+        }
+      }
+    }))
+
+    let subtotal = strapi.config.functions.cart.cartSubtotal(sanitizedCart)
+    let salestax = strapi.config.functions.cart.cartSalesTax(sanitizedCart)
+    let shipping = strapi.config.functions.cart.cartShipping(sanitizedCart)
+    let total = strapi.config.functions.cart.cartTotal(sanitizedCart)
+
+    total = total * .01 // Unlike Stripe, Shippo expects dollars, not cents
+
+    const fullname = `${firstname} ${lastname}`
+
+    try {
+      const shippoOrder = await api.goshippo.com/orders(
+        {
+        "to_address": {
+          "object_purpose": "PURCHASE",
+          "city": city,
+          "country": country,
+          "email": email,
+          "name": fullName,
+          "state": state,
+          "street1": address,
+          "street2": address2,
+          "zip": zip
+        },
+        "items": items,
+        "order_status": "PAID",
+        "shipping_cost": shipping,
+        "shipping_cost_currency": "USD",
+        "shop_app": "Shippo",
+        "subtotal_price": subtotal,
+        "total_price": total,
+        "total_tax": salestax,
+        "currency": "USD"
+      }
+    )
+      console.log("shippoOrder", shippoOrder)
+      return shippoOrder
+    } catch (err) {
+      return {error: err.raw.message}
+    }
+  },
+*/
 };
