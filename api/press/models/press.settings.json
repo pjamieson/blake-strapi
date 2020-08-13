@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "presses",
+  "info": {
+    "name": "Press"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "headline": {
+      "type": "string",
+      "required": true
+    },
+    "tease": {
+      "type": "richtext"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "image_credit": {
+      "type": "string"
+    },
+    "publication": {
+      "type": "string"
+    },
+    "pub_date": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer",
+      "default": 1,
+      "required": true
+    },
+    "show": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
