@@ -89,7 +89,7 @@
     "qty": {
       "type": "integer",
       "default": 0,
-      "required": true
+      "required": false
     }
   }
 }
