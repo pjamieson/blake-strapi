@@ -85,6 +85,11 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "qty": {
+      "type": "integer",
+      "default": 0,
+      "required": true
     }
   }
 }
