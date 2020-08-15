@@ -85,6 +85,9 @@
       "type": "integer",
       "default": 0,
       "required": true
+    },
+    "subtitle": {
+      "type": "string"
     }
   }
 }
