@@ -2,7 +2,7 @@
   "name": "blake-strapi",
   "private": true,
   "description": "Strapi CMS backend for blake [dot] art",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Patrick Jamieson <patrick@patrickjamieson.com>",
   "dependencies": {
     "aws-sdk": "^2.723.0",
