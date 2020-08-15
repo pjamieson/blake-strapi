@@ -53,11 +53,6 @@
       "required": true,
       "min": 0
     },
-    "available": {
-      "type": "boolean",
-      "required": false,
-      "default": false
-    },
     "portfolio": {
       "type": "boolean",
       "required": false,
@@ -89,7 +84,7 @@
     "qty": {
       "type": "integer",
       "default": 0,
-      "required": false
+      "required": true
     }
   }
 }
