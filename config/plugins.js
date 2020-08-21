@@ -7,8 +7,8 @@ module.exports = ({ env }) => ({
       privateKey: env('GSUITE_EMAIL_PRIVATE_KEY').replace(/\\n/g, '\n'),
     },
     settings: {
-      defaultFrom: 'blake@blake.art',
-      defaultReplyTo: 'blake@blake.art',
+      defaultFrom: 'contact@blake.art',
+      defaultReplyTo: 'contact@blake.art',
     },
   },
 });
