@@ -21,7 +21,7 @@
     "strapi-provider-email-gmail-2lo": "^3.0.6",
     "strapi-provider-upload-aws-s3": "3.1.4",
     "strapi-utils": "3.1.4",
-    "stripe": "^8.69.0"
+    "stripe": "^8.89.0"
   },
   "devDependencies": {},
   "strapi": {

@@ -1,11 +1,11 @@
 'use strict';
-const stripe = require('stripe')(process.env.STRIPE_SK)
+const stripe = require('stripe')(`${process.env.STRIPE_SK}`)
 //const shippo = require('shippo')(process.env.SHIPPO_API_TOKEN)
 const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
 
 module.exports = {
   setupStripe: async (ctx) => {
-    let total = 100
+    let total = 100 // placeholder value
     let validatedCart = []
     let minimalCart = [] // for getting paymentIntent
 
