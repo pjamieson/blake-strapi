@@ -9,6 +9,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/orders/shipping",
+      "handler": "order.notifyShippo",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "GET",
       "path": "/orders",
       "handler": "order.find",
