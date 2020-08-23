@@ -1,5 +1,6 @@
 'use strict';
 const stripe = require('stripe')(`${process.env.STRIPE_SK}`)
+const shippo = require('shippo')(`${process.env.SHIPPO_API_TOKEN}`)
 const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
 
 module.exports = {
@@ -16,38 +17,29 @@ module.exports = {
         const validatedItem = await strapi.services.painting.findOne({
           identifier: item.identifier
         })
-
         if (validatedItem) {
           validatedItem.qty = item.qty
-
           validatedCart.push(validatedItem)
-
           minimalCart.push({
             id: item.identifier,
             qty: item.qty
           })
-
           return validatedItem // forces block to complete before continuing
         }
       } else if (item.itemType === 'tradingcard') {
         const validatedItem = await strapi.services.tradingcard.findOne({
           identifier: item.identifier
         })
-
         if (validatedItem) {
           validatedItem.qty = item.qty
-
           validatedCart.push(validatedItem)
-
           minimalCart.push({
             id: item.identifier,
             qty: item.qty
           })
-
           return validatedItem // forces block to complete before continuing
         }
       }
-
     }))
 
     total = strapi.config.functions.cart.cartTotal(validatedCart)
@@ -56,11 +48,8 @@ module.exports = {
       const paymentIntent = await stripe.paymentIntents.create({
         amount: total,
         currency: 'usd',
-        // Verify your integration in this guide by including this parameter
-        //metadata: {integration_check: 'accept_a_payment'},
         metadata: {cart: JSON.stringify(minimalCart)},
       });
-
       return paymentIntent
     } catch (err) {
       return {error: err.raw.message}
@@ -225,6 +214,17 @@ module.exports = {
   },
 
   notifyShippo: async (ctx) => {
+    console.log("notifyShippo ctx.request.body", ctx.request.body)
+
+    try {
+      const order = await shippo.order.create(ctx.request.body)
+      .then(function(order){
+        //console.log("shippo order", JSON.stringify(order))
+      })
+    } catch (err) {
+      console.log("notifyShippo err", err)
+    }
+/*
     try {
       const response = await fetch(`${process.env.SHIPPO_API_URL}/orders`, {
         method: "POST",
@@ -239,5 +239,6 @@ module.exports = {
     } catch (err) {
       console.log("notifyShippo post error", err)
     }
+*/
   },
 };
