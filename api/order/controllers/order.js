@@ -1,5 +1,7 @@
 'use strict';
-const stripe = require('stripe')(`${process.env.STRIPE_SK}`)
+const stripe = require('stripe')(`${process.env.STRIPE_SK}`, {
+  apiVersion: '2020-03-02',
+})
 const shippo = require('shippo')(`${process.env.SHIPPO_API_TOKEN}`)
 const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
 
