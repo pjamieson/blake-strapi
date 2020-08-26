@@ -216,31 +216,15 @@ module.exports = {
   },
 
   notifyShippo: async (ctx) => {
-    console.log("notifyShippo ctx.request.body", ctx.request.body)
-
+    //console.log("notifyShippo ctx.request.body", ctx.request.body)
     try {
-      const order = await shippo.order.create(ctx.request.body)
-      .then(function(order){
-        //console.log("shippo order", JSON.stringify(order))
+      const shippo_order = await shippo.order.create(ctx.request.body)
+      .then(function(shippo_order){
+        //console.log("notifyShippo shippo_order", shippo_order)
+        return shippo_order
       })
     } catch (err) {
       console.log("notifyShippo err", err)
     }
-/*
-    try {
-      const response = await fetch(`${process.env.SHIPPO_API_URL}/orders`, {
-        method: "POST",
-        headers: {
-          "Authorization": `ShippoToken ${process.env.SHIPPO_API_TOKEN}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(ctx.request.body)
-      })
-      const data = await response.json()
-      console.log("notifyShippo post data", data)
-    } catch (err) {
-      console.log("notifyShippo post error", err)
-    }
-*/
   },
 };
