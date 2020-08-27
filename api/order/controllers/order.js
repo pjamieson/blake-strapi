@@ -210,9 +210,29 @@ module.exports = {
       stripe_paymentintent_id
     }
 
+    try {
+      const entity = await strapi.services.order.create(entry);
+      //console.log("order/create entity", entity)
+      const strapi_order = {
+        order_id: entity.id,
+        order_created: entity.created_at
+      }
+      //console.log("order/create strapi_order", strapi_order)
+      //return sanitizeEntity(entity, { model: strapi.models.order });
+      return strapi_order
+    } catch (err) {
+      console.log("order/create err", err)
+    }
+/*
     const entity = await strapi.services.order.create(entry);
-
-    return sanitizeEntity(entity, { model: strapi.models.order });
+    //console.log("order/create entity", entity)
+    const strapi_order = {
+      order_id: entity.id,
+      order_created: entity.created_at
+    }
+    //return sanitizeEntity(entity, { model: strapi.models.order });
+    return strapi_order
+*/
   },
 
   notifyShippo: async (ctx) => {
