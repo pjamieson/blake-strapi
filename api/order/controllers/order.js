@@ -141,6 +141,7 @@ module.exports = {
 
     let paintings = []
     let tradingcards = []
+    let products = []
     let card_qty = []
     let sanitizedCart = []
 
@@ -151,11 +152,16 @@ module.exports = {
           identifier: item.identifier
         })
         if (cmsItem) {
+          card_qty.push({
+            item_type: 'painting',
+            identifier: item.identifier,
+            title: item.title,
+            qty: item.qty
+          })
           paintings.push(cmsItem)
           sanitizedCart.push(
             {...cmsItem, ...{qty: item.qty}}
           )
-
           return cmsItem // forces block to complete before continuing
         }
       } else if (item.itemType === 'tradingcard') {
@@ -164,14 +170,32 @@ module.exports = {
         })
         if (cmsItem) {
           card_qty.push({
+            item_type: 'tradingcard',
             identifier: item.identifier,
+            title: item.title,
             qty: item.qty
           })
           tradingcards.push(cmsItem)
           sanitizedCart.push(
             {...cmsItem, ...{qty: item.qty}}
           )
-
+          return cmsItem // forces block to complete before continuing
+        }
+      } else if (item.itemType === 'product') {
+        const cmsItem = await strapi.services.product.findOne({
+          identifier: item.identifier
+        })
+        if (cmsItem) {
+          card_qty.push({
+            item_type: 'product',
+            identifier: item.identifier,
+            title: item.title,
+            qty: item.qty
+          })
+          products.push(cmsItem)
+          sanitizedCart.push(
+            {...cmsItem, ...{qty: item.qty}}
+          )
           return cmsItem // forces block to complete before continuing
         }
       }
@@ -200,6 +224,7 @@ module.exports = {
 
       paintings,
       tradingcards,
+      products,
       card_qty,
 
       subtotal,
@@ -223,16 +248,6 @@ module.exports = {
     } catch (err) {
       console.log("order/create err", err)
     }
-/*
-    const entity = await strapi.services.order.create(entry);
-    //console.log("order/create entity", entity)
-    const strapi_order = {
-      order_id: entity.id,
-      order_created: entity.created_at
-    }
-    //return sanitizeEntity(entity, { model: strapi.models.order });
-    return strapi_order
-*/
   },
 
   notifyShippo: async (ctx) => {

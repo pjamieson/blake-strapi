@@ -89,6 +89,10 @@
     "subtitle": {
       "type": "string",
       "required": false
+    },
+    "orders": {
+      "via": "paintings",
+      "collection": "order"
     }
   }
 }

@@ -50,6 +50,11 @@
     "feature": {
       "type": "boolean",
       "default": false
+    },
+    "orders": {
+      "via": "products",
+      "collection": "order",
+      "dominant": true
     }
   }
 }

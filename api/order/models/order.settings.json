@@ -10,12 +10,14 @@
   },
   "attributes": {
     "tradingcards": {
-      "via": "orders",
       "collection": "tradingcard",
+      "via": "orders",
       "dominant": true
     },
     "paintings": {
-      "collection": "painting"
+      "collection": "painting",
+      "via": "orders",
+      "dominant": true
     },
     "card_qty": {
       "type": "json"
@@ -72,6 +74,16 @@
     "stripe_paymentintent_id": {
       "type": "string",
       "unique": true
+    },
+    "products": {
+      "collection": "product",
+      "via": "orders"
+    },
+    "note": {
+      "type": "text"
+    },
+    "promo_code": {
+      "type": "string"
     }
   }
 }
