@@ -17,6 +17,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/orders/salestax",
+      "handler": "order.getSalestaxRate",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "GET",
       "path": "/orders",
       "handler": "order.find",

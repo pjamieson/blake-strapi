@@ -1,4 +1,5 @@
 'use strict';
+const fetch = require("node-fetch")
 const stripe = require('stripe')(`${process.env.STRIPE_SECRET_KEY}`, {
   apiVersion: '2020-03-02',
 })
@@ -12,7 +13,11 @@ module.exports = {
     let minimalCart = [] // for getting paymentIntent
 
     // Items & qtys in ctx.request.body
-    const { cart } = ctx.request.body
+    const {
+      salesTaxRate,
+      cart
+    } = ctx.request.body
+    //console.log("setupStripe salesTaxRate", salesTaxRate)
 
     await Promise.all(cart.map(async item => {
       if (item.itemType === 'painting') {
@@ -44,13 +49,15 @@ module.exports = {
       }
     }))
 
-    total = strapi.config.functions.cart.cartTotal(validatedCart)
+    total = strapi.config.functions.cart.cartTotal(validatedCart, salesTaxRate)
 
     try {
       const paymentIntent = await stripe.paymentIntents.create({
         amount: total,
         currency: 'usd',
-        metadata: {cart: JSON.stringify(minimalCart)},
+        metadata: {
+          cart: JSON.stringify(minimalCart)
+        },
       });
       return paymentIntent
     } catch (err) {
@@ -59,7 +66,7 @@ module.exports = {
   },
 /*
   validatePayment: async (ctx) => {
-    const { paymentIntent } = ctx.request.body
+    const { salesTaxRate, paymentIntent } = ctx.request.body
 
     let paymentInfo
 
@@ -113,7 +120,7 @@ module.exports = {
       }
     }))
 
-    const total = strapi.config.functions.cart.cartTotal(sanitizedCart)
+    const total = strapi.config.functions.cart.cartTotal(sanitizedCart, salesTaxRate)
 
     // Make sure the paymentIntent total matches the sanitizedCart total
     if (paymentInfo.amount !== total) {
@@ -125,6 +132,7 @@ module.exports = {
 */
   create: async (ctx) => {
     const {
+      salesTaxRate,
       paymentIntent,
       firstname,
       lastname,
@@ -202,9 +210,9 @@ module.exports = {
     }))
 
     let subtotal = strapi.config.functions.cart.cartSubtotal(sanitizedCart)
-    let salestax = strapi.config.functions.cart.cartSalesTax(sanitizedCart)
+    let salestax = strapi.config.functions.cart.cartSalesTax(sanitizedCart, salesTaxRate)
     let shipping = strapi.config.functions.cart.cartShipping(sanitizedCart)
-    let total = strapi.config.functions.cart.cartTotal(sanitizedCart)
+    let total = strapi.config.functions.cart.cartTotal(sanitizedCart, salesTaxRate)
 
     total = total * .01 // Unlike Stripe, Strapi expects dollars, not cents
 
@@ -254,12 +262,30 @@ module.exports = {
     //console.log("notifyShippo ctx.request.body", ctx.request.body)
     try {
       const shippo_order = await shippo.order.create(ctx.request.body)
-      .then(function(shippo_order){
-        //console.log("notifyShippo shippo_order", shippo_order)
-        return shippo_order
-      })
+      //console.log("notifyShippo shippo_order", shippo_order)
+      return shippo_order
     } catch (err) {
       console.log("notifyShippo err", err)
+    }
+  },
+
+  getSalestaxRate: async (ctx) => {
+    // *** Don't forget to add Public permission in Strapi Roles & Permissions ***
+    //console.log("getSalestaxRate ctx.request.body", ctx.request.body)
+    try {
+      const postal_code = ctx.request.body.postal_code
+      const request_url = `${process.env.ZIPTAX_API_URL}?key=${process.env.ZIPTAX_API_KEY}&postalcode=${postal_code}`
+
+      const response = await fetch(request_url)
+      const data = await response.json()
+      const taxrate = {
+        "geoCity": data.results[0].geoCity,
+        "taxSales": data.results[0].taxSales
+      }
+      //console.log("getSalestax taxrate", taxrate)
+      return taxrate // Results in expected response, but 404 error on client side!!!
+    } catch (err) {
+      console.log("getSalestaxRate err", err)
     }
   },
 };

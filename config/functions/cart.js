@@ -1,7 +1,7 @@
 // Replicates functions from blake-dot-art/src/utils/cart.js
 // A private Node package that both projects use would be a better solution
 
-const SALES_TAX_RATE = process.env.SALES_TAX_RATE || 0.00
+// Called from setupStripe in api/order/controllers/order.js
 
 const cartSubtotal = (cart) => {
   const subtotal = cart.reduce((counter, item) => {
@@ -11,22 +11,33 @@ const cartSubtotal = (cart) => {
   return subtotal
 }
 
-const cartSalesTax = (cart) => {
+const cartSalesTax = (cart, taxRate) => {
   const subtotal = cartSubtotal(cart)
-  const cartSalesTax = (subtotal * SALES_TAX_RATE)
+  let salestax = 0.00
 
-  return cartSalesTax
+  if (taxRate > 0) {
+    const cartSalesTax = (subtotal * taxRate)
+    //console.log("cart.js cartSalesTax", cartSalesTax)
+    salestax = Math.round((cartSalesTax + Number.EPSILON) * 100) / 100
+  }
+
+  return salestax
 }
 
 const cartShipping = (cart) => {
   return 0.00 // For now, all shipping is free
 }
 
-const cartTotal = (cart) => {
+const cartTotal = (cart, taxRate) => {
+  //console.log("cart.js cartTotal taxRate", taxRate)
   const subtotal = cartSubtotal(cart)
-  const total = subtotal + (subtotal * SALES_TAX_RATE)
+  const salestax = cartSalesTax(cart, taxRate)
+  const shipping = cartShipping(cart)
+  const total = (subtotal*1 + salestax*1 + shipping*1)
 
-  return total * 100 // Stripe requires integer in cents, not dollar decimal
+  //console.log("cart.js cartTotal total", total)
+
+  return (total * 100) // Stripe requires integer in cents, not dollar decimal
 }
 
 module.exports = {
