@@ -10,13 +10,13 @@
   },
   "attributes": {
     "tradingcards": {
-      "collection": "tradingcard",
       "via": "orders",
+      "collection": "tradingcard",
       "dominant": true
     },
     "paintings": {
-      "collection": "painting",
       "via": "orders",
+      "collection": "painting",
       "dominant": true
     },
     "card_qty": {
@@ -76,8 +76,8 @@
       "unique": true
     },
     "products": {
-      "collection": "product",
-      "via": "orders"
+      "via": "orders",
+      "collection": "product"
     },
     "note": {
       "type": "text"

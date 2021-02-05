@@ -2,11 +2,13 @@
   "kind": "collectionType",
   "collectionName": "products",
   "info": {
-    "name": "Product"
+    "name": "Product",
+    "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": true
+    "timestamps": true,
+    "draftAndPublish": true
   },
   "attributes": {
     "product_category": {
@@ -52,8 +54,8 @@
       "default": false
     },
     "orders": {
-      "via": "products",
       "collection": "order",
+      "via": "products",
       "dominant": true
     }
   }

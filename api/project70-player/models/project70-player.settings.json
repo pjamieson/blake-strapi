@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project70_players",
+  "info": {
+    "name": "Project70 Player"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "tradingcards": {
+      "collection": "tradingcard",
+      "via": "project_70_player"
+    }
+  }
+}

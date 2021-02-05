@@ -2,11 +2,13 @@
   "kind": "collectionType",
   "collectionName": "paintings",
   "info": {
-    "name": "painting"
+    "name": "painting",
+    "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": true
+    "timestamps": true,
+    "draftAndPublish": true
   },
   "attributes": {
     "identifier": {
@@ -91,8 +93,8 @@
       "required": false
     },
     "orders": {
-      "via": "paintings",
-      "collection": "order"
+      "collection": "order",
+      "via": "paintings"
     }
   }
 }

@@ -2,11 +2,13 @@
   "kind": "collectionType",
   "collectionName": "tradingcards",
   "info": {
-    "name": "tradingcard"
+    "name": "tradingcard",
+    "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": true
+    "timestamps": true,
+    "draftAndPublish": true
   },
   "attributes": {
     "image": {
@@ -63,8 +65,12 @@
       "via": "tradingcards"
     },
     "orders": {
+      "collection": "order",
+      "via": "tradingcards"
+    },
+    "project_70_player": {
       "via": "tradingcards",
-      "collection": "order"
+      "model": "project70-player"
     }
   }
 }
