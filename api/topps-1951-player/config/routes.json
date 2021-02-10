@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/topps-1951-players",
+      "handler": "topps-1951-player.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/topps-1951-players/count",
+      "handler": "topps-1951-player.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/topps-1951-players/:id",
+      "handler": "topps-1951-player.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/topps-1951-players",
+      "handler": "topps-1951-player.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/topps-1951-players/:id",
+      "handler": "topps-1951-player.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/topps-1951-players/:id",
+      "handler": "topps-1951-player.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

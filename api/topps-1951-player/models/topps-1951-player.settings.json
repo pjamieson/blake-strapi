@@ -1,8 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "project70_players",
+  "collectionName": "topps_1951_players",
   "info": {
-    "name": "Project70 Player"
+    "name": "Topps 1951 Player",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -17,7 +18,7 @@
       "type": "integer"
     },
     "tradingcards": {
-      "via": "project_70_player",
+      "via": "topps_1951_player",
       "collection": "tradingcard"
     }
   }

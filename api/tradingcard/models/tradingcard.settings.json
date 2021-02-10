@@ -69,8 +69,21 @@
       "via": "tradingcards"
     },
     "project_70_player": {
-      "via": "tradingcards",
-      "model": "project70-player"
+      "model": "project70-player",
+      "via": "tradingcards"
+    },
+    "topps_1951_player": {
+      "model": "topps-1951-player",
+      "via": "tradingcards"
+    },
+    "image2": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }
