@@ -8,14 +8,16 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "order": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "tradingcards": {
       "via": "topps_1951_player",

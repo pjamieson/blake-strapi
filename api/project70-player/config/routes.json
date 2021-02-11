@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/project-70-players",
+      "path": "/project70-players",
       "handler": "project70-player.find",
       "config": {
         "policies": []
@@ -10,7 +10,7 @@
     },
     {
       "method": "GET",
-      "path": "/project-70-players/count",
+      "path": "/project70-players/count",
       "handler": "project70-player.count",
       "config": {
         "policies": []
@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/project-70-players/:id",
+      "path": "/project70-players/:id",
       "handler": "project70-player.findOne",
       "config": {
         "policies": []
@@ -26,7 +26,7 @@
     },
     {
       "method": "POST",
-      "path": "/project-70-players",
+      "path": "/project70-players",
       "handler": "project70-player.create",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/project-70-players/:id",
+      "path": "/project70-players/:id",
       "handler": "project70-player.update",
       "config": {
         "policies": []
@@ -42,7 +42,7 @@
     },
     {
       "method": "DELETE",
-      "path": "/project-70-players/:id",
+      "path": "/project70-players/:id",
       "handler": "project70-player.delete",
       "config": {
         "policies": []

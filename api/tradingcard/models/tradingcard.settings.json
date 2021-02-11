@@ -68,9 +68,9 @@
       "collection": "order",
       "via": "tradingcards"
     },
-    "project_70_player": {
-      "model": "project70-player",
-      "via": "tradingcards"
+    "project70_player": {
+      "via": "tradingcards",
+      "model": "project70-player"
     },
     "topps_1951_player": {
       "model": "topps-1951-player",
