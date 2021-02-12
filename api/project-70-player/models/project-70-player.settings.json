@@ -1,6 +1,6 @@
 {
   "kind": "collectionType",
-  "collectionName": "project70_players",
+  "collectionName": "project_70_players",
   "info": {
     "name": "Project 70 Player",
     "description": ""
@@ -20,8 +20,8 @@
       "required": true
     },
     "tradingcards": {
-      "collection": "tradingcard",
-      "via": "project70_player"
+      "via": "project_70_player",
+      "collection": "tradingcard"
     }
   }
 }

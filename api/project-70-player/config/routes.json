@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/project70-players",
-      "handler": "project70-player.find",
+      "path": "/project-70-players",
+      "handler": "project-70-player.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/project70-players/count",
-      "handler": "project70-player.count",
+      "path": "/project-70-players/count",
+      "handler": "project-70-player.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/project70-players/:id",
-      "handler": "project70-player.findOne",
+      "path": "/project-70-players/:id",
+      "handler": "project-70-player.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/project70-players",
-      "handler": "project70-player.create",
+      "path": "/project-70-players",
+      "handler": "project-70-player.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/project70-players/:id",
-      "handler": "project70-player.update",
+      "path": "/project-70-players/:id",
+      "handler": "project-70-player.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/project70-players/:id",
-      "handler": "project70-player.delete",
+      "path": "/project-70-players/:id",
+      "handler": "project-70-player.delete",
       "config": {
         "policies": []
       }

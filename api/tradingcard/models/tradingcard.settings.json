@@ -20,6 +20,15 @@
       "plugin": "upload",
       "required": true
     },
+    "image2": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
     "title": {
       "type": "string",
       "required": true
@@ -64,26 +73,17 @@
       "model": "project-2020-player",
       "via": "tradingcards"
     },
-    "orders": {
-      "collection": "order",
-      "via": "tradingcards"
-    },
-    "project70_player": {
-      "via": "tradingcards",
-      "model": "project70-player"
-    },
     "topps_1951_player": {
       "model": "topps-1951-player",
       "via": "tradingcards"
     },
-    "image2": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
-      "plugin": "upload",
-      "required": false
+    "project_70_player": {
+      "model": "project-70-player",
+      "via": "tradingcards"
+    },
+    "orders": {
+      "collection": "order",
+      "via": "tradingcards"
     }
   }
 }
