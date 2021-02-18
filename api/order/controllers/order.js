@@ -46,6 +46,19 @@ module.exports = {
           })
           return validatedItem // forces block to complete before continuing
         }
+      } else if (item.itemType === 'product') {
+        const validatedItem = await strapi.services.product.findOne({
+          identifier: item.identifier
+        })
+        if (validatedItem) {
+          validatedItem.qty = item.qty
+          validatedCart.push(validatedItem)
+          minimalCart.push({
+            id: item.identifier,
+            qty: item.qty
+          })
+          return validatedItem // forces block to complete before continuing
+        }
       }
     }))
 
