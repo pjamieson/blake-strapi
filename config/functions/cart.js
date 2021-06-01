@@ -37,7 +37,7 @@ const cartTotal = (cart, taxRate) => {
 
   //console.log("cart.js cartTotal total", total)
 
-  return (total * 100) // Stripe requires integer in cents, not dollar decimal
+  return Math.round(total * 100) // Stripe requires integer in cents, not dollar decimal
 }
 
 module.exports = {
