@@ -2,11 +2,13 @@
   "kind": "collectionType",
   "collectionName": "team_members",
   "info": {
-    "name": "Team Member"
+    "name": "Team Member",
+    "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": true
+    "timestamps": true,
+    "draftAndPublish": true
   },
   "attributes": {
     "name": {
@@ -20,7 +22,8 @@
         "images"
       ],
       "plugin": "upload",
-      "required": true
+      "required": true,
+      "pluginOptions": {}
     },
     "image_credit": {
       "type": "string"
